@@ -2,7 +2,6 @@
 
 (ns euler.01
   (:require [clojure.set :as set]))
-(refer 'euler.util)
 
 (defn multiples-of
   "Generates a sequence of multiples of N starting at N"
@@ -20,7 +19,7 @@
 ;; Even more math could simplify further - both sets are simply arithmetic
 ;; progressions, and there's a generalized equation for their sums. But this
 ;; solution is definitely more LISP-ish that straight-up math.
-(defn euler-1
+(defn solve
   "Sum of the multiples of 3 or 5 below 1,000"
   []
   (reduce +
