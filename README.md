@@ -8,7 +8,7 @@ into Clojure, and represents the first time I've touched LISP of any kind since
 my Scheme class in 1992 (thanks, University of Delaware!). So, if you're 
 stumbling across this and wondering why it isn't more complete ... now you know.
 
-Currently it only addresses problems #1 and #2.
+Currently it only addresses problems #1,  #2, and #22.
 
 ## Requirements
 
@@ -32,6 +32,14 @@ COMMAND-LINE: Run the core & print the answers:
     # Euler 2:  4613732
     # ...
 
+Or just run the tests to make sure it's working:
+
+    $ lein test
+    # lein test euler.core-test
+    # Ran 3 tests containing 3 assertions.
+    # 0 failures, 0 errors.
+
+
 REPL: Run individual problems from within the REPL:
 
     $ lein repl
@@ -39,6 +47,7 @@ REPL: Run individual problems from within the REPL:
     # 233168
     euler.core=> (euler-2)
     # 4613732
+    ...
 
 
 ### Structure
