@@ -1,7 +1,14 @@
 (ns euler.core-test
   (:require [clojure.test :refer :all]
-            [euler.core :refer :all]))
+            [euler.core :refer :all]
+            [euler.01 :as euler-1]
+            [euler.02 :as euler-2])
+  (:gen-class))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest euler-01-test
+  (testing "Euler problem 1: failure."
+    (is (= 233168 (euler-1/solve)))))
+
+(deftest euler-02-test
+  (testing "Euler problem 2: failure."
+    (is (= 4613732 (euler-2/solve)))))
