@@ -17,8 +17,7 @@
       .getPath
       slurp
       (.replace "\"" "")
-      (str/split #"[\s]*,[\s]*")
-      )))
+      (str/split #"[\s]*,[\s]*"))))
 
 (def alphabet-str "ABCDEFGHIJKLMNOPQRSTUVWXYZ") ; A string containing the alphabet
 
