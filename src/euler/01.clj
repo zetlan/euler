@@ -8,19 +8,22 @@
   [n]
   (map #(* n %) (iterate inc 1)))
 
-;; Some math makes this simpler.
-;; The highest multiple of 3 that is less than 1,000 is 999. 999 / 3 = 333.
-;; And for 5, it is 995. 995 / 5 = 199.
-;; So we can work with the first 333 multiples of 3 & 995 of 5.
-;;
-;; That gives us two sets, but numbers like 15 or 30 (multiples of 3 AND 5)
-;; appear in both sets. So we need the distinct union of these sets.
-;;
-;; Even more math could simplify further - both sets are simply arithmetic
-;; progressions, and there's a generalized equation for their sums. But this
-;; solution is definitely more LISP-ish that straight-up math.
 (defn solve
-  "Sum of the multiples of 3 or 5 below 1,000"
+  "Sum of the multiples of 3 or 5 below 1,000.
+
+  Some math with simplify the problem. The highest multiple of 3 that's less than
+  1,000 is 999, and 999 / 3 = 333. For 5, it's 995, and 995 / 5 = 199. So we
+  know there are 333 multiples of 3 and 199 multiples of 5 that are less than
+  1,000.
+
+  That gives us 2 sets, but each set has numbers like 15 or 30 that are multiples
+  of both 3 AND 5, and we don't want to count them twice, so we take the distinct
+  union of both sets before summing them.
+
+  Finally, we could simplify even further - both sets are arithmetic progressions,
+  and there's a generalized equation for their sums. But this solution is a bit
+  more Lisp-ish than straight-up math. (For the record, you'd calculate the sums
+  of multiples of 3 and multiples of 5, then subtract the sum of multiples of 15)."
   []
   (reduce +
     (set
