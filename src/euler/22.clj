@@ -32,15 +32,18 @@
   (reduce + (map alpha-value (str/split word, #""))))
 
 (defn rank-value
-  "Given a list of words, returns a list of pairs of [position word-value]."
+  "Given a list of words, returns a list of rank values.
+
+  The rank-value of a word is defined as the product of its word value and
+  its position in the list (position starts at 1)."
   [words]
-  (for [i (range (count words))] [(inc i) (word-value (nth words i))]))
+  (for [i (range (count words))] (* (inc i) (word-value (nth words i)))))
 
 (defn solve
-  "Sum of the 'name ranks' of >5,000 names per the problem description."
+  "Sum of the 'rank-values' of >5,000 names per the problem description."
   []
-  (reduce + (map (fn[[k v]] (* k v)) (-> (names)
-                                          sort
-                                          rank-value))))
+  (reduce + (-> (names)
+                sort
+                rank-value)))
 
 
