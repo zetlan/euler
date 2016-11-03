@@ -10,9 +10,9 @@
 
   If the filename is blank or missing, default to the known good file
   in the resources/ directory."
-  ([] (names ""))
+  ([] (names "p022_names.txt"))
   ([filename]
-  (-> (if (empty? filename) "p022_names.txt" filename)
+  (-> filename
       io/resource
       .getPath
       slurp
